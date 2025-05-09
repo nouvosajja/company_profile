@@ -1,0 +1,450 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    color: #fff;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    display: flex; /* Menggunakan flexbox untuk tata letak utama */
+}
+
+.social-media {
+    background-color: #333;
+    padding: 20px 0;
+    width: 80px; /* Lebar tetap untuk social media */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Tetap di sisi kiri */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+.date {
+    color: #777;
+    margin-bottom: 40px;
+    font-size: 0.8em;
+    transform: rotate(-90deg) translate(-10px);
+    white-space: nowrap;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.social-icon:hover {
+    color: #ddd;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    /* border-bottom: 1px solid #444; Anda mungkin ingin menghapus ini atau menyesuaikannya */
+    position: fixed; /* Membuat header tetap di posisinya */
+    top: 0; /* Menempelkan header ke bagian atas viewport */
+    left: 0; /* Memastikan header dimulai dari sisi kiri viewport */
+    width: 100%; /* Membuat header selebar viewport */
+    background-color: rgba(34, 34, 34, 0.9); /* Menambahkan background agar konten di bawahnya tidak terlihat; gunakan rgba untuk transparansi jika diinginkan */
+    z-index: 1000; /* Memastikan header berada di atas konten lain */
+}
+
+.content-container {
+    background-color: #222;
+    flex-grow: 1;
+    margin-left: 200px;
+    padding-top: 84px; /* Tambahkan padding-top sebesar tinggi header agar konten tidak tertutup header yang fixed (misalnya 60px + 24px padding atas bawah) */
+}
+
+/* Responsive adjustments (perlu disesuaikan jika tinggi header berubah pada layar kecil) */
+@media (max-width: 992px) {
+    .content-container {
+        margin-left: 0;
+        display: block;
+        padding-top: 64px; /* Sesuaikan padding-top untuk layar kecil */
+    }
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #fff !important;
+    text-decoration: none;
+    padding: 0.5rem 0 !important;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    border-bottom-color: #fff;
+}
+
+.mail-link {
+    color: #ffc107 !important;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    min-height: calc(100vh - 60px - 80px); /* Tinggi layar disesuaikan */
+}
+
+.hero-content {
+    flex: 0.5; /* Mengambil sebagian ruang */
+    margin-left: 250px;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.hero-content .row {
+    display: flex; /* Jadikan row sebagai flex container */
+    align-items: center; /* Ratakan item secara vertikal di tengah row */
+    margin-bottom: 30px; /* Berikan sedikit ruang di bawah row */
+    margin-left: 5px;
+}
+
+.hero-content .underline {
+    width: 60px;
+    height: 2px;
+    background-color: #fff;
+    margin-right: 15px; /* Berikan jarak antara garis dan teks */
+}
+
+.hero-content .sub-text {
+    color: #777;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    margin-bottom: 0; /* Hapus margin bottom yang mungkin mengganggu perataan */
+}
+
+.hero-image {
+    flex: 1; /* Mengambil sebagian ruang */
+    max-width: 50%;
+}
+
+.hero-image img {
+    max-width: 500px; /* Sesuaikan nilai ini sesuai keinginan Anda */
+    height: auto;
+    display: block;
+}
+
+.next-article {
+    padding: 40px;
+    border-top: 1px solid #444;
+}
+
+.next-article-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.article-image {
+    max-width: 80px;
+    margin-right: 20px;
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-info {
+    flex-grow: 1;
+}
+
+.next-label {
+    color: #777;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.article-title {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    body {
+        flex-direction: column; /* Mengubah arah flex menjadi kolom */
+    }
+
+    .social-media {
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .date {
+        transform: rotate(0) translate(0);
+        margin-bottom: 0;
+    }
+
+    .social-icon {
+        margin-bottom: 0;
+    }
+
+    .content-container {
+        margin-left: 0; /* Menghapus margin kiri */
+        display: block; /* Kembalikan ke block untuk responsive */
+    }
+
+    header {
+        position: static; /* Kembalikan ke static agar mengikuti aliran */
+        width: 100%;
+        left: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px;
+        text-align: left;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+    .hero-content {
+        margin-right: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+}
+
+.about-section {
+    background-color: #333; /* Warna latar belakang yang berbeda agar terlihat jelas */
+    color: #fff;
+    padding-top: 100px; /* Berikan ruang dari header yang fixed jika Anda menggunakannya */
+    padding-bottom: 100px;
+    text-align: center; /* Contoh perataan teks */
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments untuk About Section */
+@media (max-width: 768px) {
+    .about-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        text-align: left; /* Ubah perataan teks pada layar kecil jika perlu */
+    }
+
+    .about-section h2 {
+        font-size: 2em;
+    }
+}
+
+.nav-link[href="#about"] {
+    transition: color 0.3s ease-in-out; /* Efek transisi untuk perubahan warna */
+}
+    
+.nav-link[href="#about"]:hover {
+    color: #ffc107 !important; /* Ubah warna saat dihover */
+    border-bottom-color: #ffc107; /* Ubah warna garis bawah saat dihover */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.about-section {
+    background-color: #333;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Tambahkan transisi */
+    cursor: pointer; /* Menandakan elemen ini interaktif */
+}
+
+.about-section:hover {
+    transform: translateY(-5px); /* Geser container ke atas saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan yang lebih terlihat */
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments untuk About Section */
+@media (max-width: 768px) {
+    .about-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        text-align: left;
+    }
+
+    .about-section h2 {
+        font-size: 2em;
+    }
+}
+
+/* ... CSS sebelumnya ... */
+
+.skills-section {
+    background-color: #222; /* Atau warna lain sesuai tema */
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center; /* Pusatkan judul section */
+}
+
+.skills-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.skills-section .row {
+    justify-content: center; /* Pusatkan diagram batang secara horizontal */
+    align-items: flex-end; /* Atur agar bagian bawah diagram sejajar */
+}
+
+.skill-bar {
+    background-color: #333;
+    width: 100px; /* Lebar diagram batang */
+    margin: 0 80px; /* Berikan ruang di kiri dan kanan setiap diagram */
+    height: 150px; /* Tinggi wadah diagram */
+    border-radius: 5px;
+    position: relative;
+    display: flex; /* Gunakan flexbox untuk mengatur isi di dalamnya */
+    flex-direction: column; /* Atur elemen di dalamnya menjadi kolom */
+    justify-content: flex-end; /* Posisikan bar-fill di bagian bawah */
+    align-items: center; /* Pusatkan label di bawah */
+}
+
+.bar-fill {
+    background-color: gold; /* Warna default emas */
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    transition: height 0.5s ease-in-out, background-color 0.3s ease-in-out; /* Tambahkan transisi warna */
+}
+
+/* Atur warna berbeda untuk setiap batang */
+.skills-section .row > div:nth-child(1) .bar-fill {
+    background-color: gold; /* Design */
+}
+
+.skills-section .row > div:nth-child(2) .bar-fill {
+    background-color: red; /* Thinking */
+}
+
+.skills-section .row > div:nth-child(3) .bar-fill {
+    background-color: limegreen; /* Marketing */
+}
+
+.skills-section .row > div:nth-child(4) .bar-fill {
+    background-color: lightskyblue; /* Communication */
+}
+
+.skill-label {
+    margin-top: 10px; /* Berikan ruang antara batang dan label */
+    font-size: 1em;
+    color: #777;
+}
+
+/* Responsive adjustments untuk Skills Section */
+@media (max-width: 768px) {
+    .skills-section {
+        text-align: left;
+    }
+
+    .skills-section .row {
+        flex-direction: column; /* Atur menjadi kolom pada layar kecil */
+        align-items: center; /* Pusatkan diagram secara horizontal */
+    }
+
+    .skill-bar {
+        width: 80%; /* Lebar diagram lebih besar pada layar kecil */
+        margin: 20px auto; /* Berikan ruang atas bawah dan pusatkan */
+    }
+
+    .skill-label {
+        margin-top: 5px;
+    }
+}
+
+footer {
+    background-color: #333; /* Warna latar belakang footer */
+    color: #fff; /* Warna teks footer */
+    text-align: center; /* Pusatkan teks secara default */
+    padding: 20px 0; /* Berikan sedikit ruang atas dan bawah */
+    font-size: 0.9em; /* Ukuran font yang lebih kecil */
+    }
+    
+    footer .container {
+    padding: 15px; /* Berikan padding di dalam container footer */
+    }
+    
+    /* Responsive adjustments untuk Footer */
+    @media (max-width: 768px) {
+    footer {
+    font-size: 0.8em;
+     padding: 15px 0;
+    }
+    
+    footer .container {
+    padding: 10px;
+    }
+    }
